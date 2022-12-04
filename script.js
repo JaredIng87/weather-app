@@ -4,9 +4,15 @@ var infowindow;
 var geocoder;
 var gobutton = document.getElementById("gobutton");
 var userlocation;
-var displaylist = document.getElementById("list");
+var displaylist = document.getElementById("results");
 var userevent = document.getElementById("user-search");
 var address;
+var userResults = document.createElement("ul");
+var temperature = document.createElement("li");
+var humidity = document.createElement("li");
+var windSpeed = document.createElement("li");
+var uvIndex = document.createElement("li");
+var li4 = document.createElement("li");
 
 userevent.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
@@ -14,7 +20,7 @@ userevent.addEventListener("keypress", function(event) {
       gobutton.click();
     }
   });
-  
+
   gobutton.addEventListener("click", function codeAddress() {
     getresults();
   });
@@ -36,15 +42,15 @@ userevent.addEventListener("keypress", function(event) {
         var userlocationtemp = data.main.temp;
         var userlocationhumidity = data.main.humidity;
         var userlocationwind = data.wind.speed;
-
-        var listname = document.createElement("h1");
         
-          listname.textContent =
-            "Temperature: " + Math.floor(userlocationtemp) + 
-            "Humidity: " + Math.floor(userlocationhumidity) + 
-            "Wind Speed: " + Math.floor(userlocationwind);
+          temperature.textContent = "Temperature: " + Math.floor(userlocationtemp);
+          humidity.textContent = "Humidity: " + Math.floor(userlocationhumidity); 
+          windSpeed.textContent = "Wind Speed: " + Math.floor(userlocationwind);
 
-            displaylist.appendChild(listname);
+            displaylist.appendChild(userResults);
+            userResults.appendChild(temperature);
+            userResults.appendChild(humidity);
+            userResults.appendChild(windSpeed);
         })
   }
 

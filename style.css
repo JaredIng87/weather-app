@@ -31,11 +31,15 @@ button {
     margin-left: 5px;
 }
 
-#list h1 {
+#results li {
     display:flex;
     flex-wrap: wrap;
     text-align: center;
     color: black;
+    justify-content: center;
+}
+
+#results ul {
     background: lightgray;
     border-radius: 10px;
     width: auto;
