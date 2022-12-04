@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(28, 28, 142);
+    background-size: cover;
+    height: 1400px;
+    width: 100%;
+}
+
+header {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    background-color: lightgray;
+    font-size: 30px;
+}
+
+h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(5, 5, 5, 0.5);
+}
+
+button {
+    margin-left: 5px;
+}
