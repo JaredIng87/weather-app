@@ -14,33 +14,19 @@ userevent.addEventListener("keypress", function(event) {
       gobutton.click();
     }
   });
-
-  function initialize() {
-    geocoder = new google.maps.Geocoder();
-    map = new google.maps.Map(document.getElementById("map"));
-  }
-  
   
   gobutton.addEventListener("click", function codeAddress() {
-    var address = document.getElementById("user-search").value;
-    geocoder.geocode({ address: address }, function (results, status) {
-      if (status == "OK") {
-        userlocation = results;
-        gettemp();
-      } else {
-        alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
+    getresults();
   });
   
   
-  function gettemp() {
+  function getresults() {
   
     console.log("hello world");
   
-    var address = document.getElementById("user-search").value;
+    var city = document.getElementById("user-search").value;
   
-    var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${address}&units=imperial&appid=04c358570a8428feb8acff9034f9c7b2`;
+    var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=04c358570a8428feb8acff9034f9c7b2`;
   
     fetch(requestUrl)
       .then(function (response) {
@@ -48,13 +34,15 @@ userevent.addEventListener("keypress", function(event) {
       })
       .then(function (data) {
         var userlocationtemp = data.main.temp;
-        console.log(userlocationtemp);
+        var userlocationhumidity = data.main.humidity;
+        var userlocationwind = data.wind.speed;
 
         var listname = document.createElement("h1");
         
           listname.textContent =
-            "the temperature is " +
-            Math.floor(userlocationtemp);
+            "Temperature: " + Math.floor(userlocationtemp) + 
+            "Humidity: " + Math.floor(userlocationhumidity) + 
+            "Wind Speed: " + Math.floor(userlocationwind);
 
             displaylist.appendChild(listname);
         })
