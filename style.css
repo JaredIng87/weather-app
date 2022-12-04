@@ -30,3 +30,19 @@ h1 {
 button {
     margin-left: 5px;
 }
+
+#list h1 {
+    display:flex;
+    flex-wrap: wrap;
+    text-align: center;
+    color: black;
+    background: lightgray;
+    border-radius: 10px;
+    width: auto;
+    padding: 50px;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    padding-bottom: 20px;
+    justify-content: center;
+    
+}
