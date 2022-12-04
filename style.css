@@ -31,7 +31,13 @@ button {
     margin-left: 5px;
 }
 
+#results {
+    width: 75%;
+    display: inline-block;
+}
+
 #results li {
+    font-size: large;
     display:flex;
     flex-wrap: wrap;
     text-align: center;
