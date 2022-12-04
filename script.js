@@ -45,15 +45,6 @@ userevent.addEventListener("keypress", function(event) {
   cities.push(city);
   storeCities();
 
-
-
-    localStorage.setItem("city", city);
-    renderLastRegistered();
-
-
-
-
-  
     var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=71c555be8a9ce2565b6198f3d788a54a`;
   
     fetch(requestUrl)
