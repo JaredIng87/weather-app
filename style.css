@@ -32,7 +32,7 @@ button {
 }
 
 #results {
-    width: 75%;
+    width: 70%;
     display: inline-block;
 }
 
@@ -48,11 +48,23 @@ button {
 #results ul {
     background: lightgray;
     border-radius: 10px;
-    width: auto;
+    width: 70%;
     padding: 50px;
-    margin-left: 4rem;
-    margin-right: 4rem;
+    margin: 20px;
     padding-bottom: 20px;
     justify-content: center;
     
+}
+
+aside {
+    display: inline-block;
+    background-color: lightgray;
+    text-align: center;
+    clear: both;
+    float: right;
+    border-radius: 10px;
+    width: 20%;
+    margin: 20px;
+    padding-bottom: 20px;
+    justify-content: center;
 }

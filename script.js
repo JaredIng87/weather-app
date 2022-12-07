@@ -16,7 +16,7 @@ var li4 = document.createElement("li");
 var today = moment().format('M/D/YYYY');
 var cities = [];
 
-renderLastRegistered();
+//renderLastRegistered();
 
 userevent.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
@@ -44,6 +44,7 @@ userevent.addEventListener("keypress", function(event) {
 
   cities.push(city);
   storeCities();
+  //renderCities();
 
     var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=71c555be8a9ce2565b6198f3d788a54a`;
   
@@ -71,9 +72,13 @@ userevent.addEventListener("keypress", function(event) {
             userResults.appendChild(humidity);
             userResults.appendChild(windSpeed);
         })
-  }
+        renderCities();
+}
 
-  function renderLastRegistered() {
+
+
+
+  /*function renderLastRegistered() {
     var city = localStorage.getItem("city");
   
      console.log(city);
@@ -81,4 +86,38 @@ userevent.addEventListener("keypress", function(event) {
     if (!city) {
       return;
     }
+  };*/
+
+  var citiesList = document.querySelector("#citiesList");
+
+  function renderCities() {
+    citiesList.innerHTML = "";
+  
+    for (var i = 0; i < cities.length; i++) {
+      var city = cities[i];
+  
+      var li = document.createElement("li");
+      li.textContent = city;
+      li.setAttribute("data-index", i);
+
+      citiesList.appendChild(li);
+    }
+    prevResults.appendChild(citiesList);
   }
+  
+  function init() {
+    var storedCities = JSON.parse(localStorage.getItem("cities"));
+  
+    if (storedCities !== null) {
+      cities = storedCities;
+    }
+  
+    renderCities();
+  }
+
+  init()
+
+
+
+
+
