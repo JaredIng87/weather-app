@@ -3,6 +3,7 @@ var service;
 var infowindow;
 var gobutton = document.getElementById("gobutton");
 var displaylist = document.getElementById("results");
+var displayforecast = document.getElementById("fiveDay");
 var userevent = document.getElementById("user-search");
 var userIcon = document.createElement("img");
 var userResults = document.createElement("ul");
@@ -44,7 +45,6 @@ userevent.addEventListener("keypress", function(event) {
 
   cities.push(city);
   storeCities();
-  //renderCities();
 
     var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=71c555be8a9ce2565b6198f3d788a54a`;
   
@@ -73,7 +73,9 @@ userevent.addEventListener("keypress", function(event) {
             userResults.appendChild(windSpeed);
         })
         renderCities();
-}
+};
+
+
 
 
 
